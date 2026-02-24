@@ -98,8 +98,7 @@ export default function Contact() {
   return (
     <>
       <section id="contact" className="py-8 px-4 sm:px-6 lg:px-8 bg-slate-950 relative">
-        <div className="absolute inset-0 bg-[url('/path-to-stars.png')] bg-cover opacity-50"></div>
-        <div className="relative max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
