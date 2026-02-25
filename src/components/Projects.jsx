@@ -12,7 +12,7 @@ export default function Projects() {
       tags: ['React', 'Node.js', 'MongoDB Atlas', 'Express', 'JWT','Typescript'],
       stats: ['','routes'],
       github: 'https://github.com/Newton122',
-      live: 'https://full-stack-task-tracker-app-ckatzila1.vercel.app/',
+      live: 'https://full-stack-task-tracker-app-fronten.vercel.app/',
       image: 'SmartTask.png',
     },
     {
