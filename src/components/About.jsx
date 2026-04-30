@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion'
-import { Code2, Zap, Target } from 'lucide-react'
+import { Code2, Zap, Target, Github } from 'lucide-react'
 
 export default function About() {
   const frontendSkills = [
@@ -32,9 +32,9 @@ export default function About() {
   ]
 
   const expertise = [
-    { icon: Code2, title: 'Aspiring Full Stack Development', description: 'End-to-end development from beautiful frontends to robust backend systems.' },
-    { icon: Zap, title: 'Performance Optimization', description: 'Creating lightning-fast applications through code splitting and caching.' },
-    { icon: Target, title: 'User Experience Design', description: 'Building intuitive interfaces that delight users.' },
+    { icon: Code2, title: 'Aspiring Full Stack Development', description: 'End-to-end development from seamless frontends to robust data-aware backend systems.' },
+    { icon: Zap, title: 'Data Engineering & AI', description: 'Exploring data pipelines, database management and the integration of Machine Learning models into functional applications' },
+    { icon: Target, title: 'Performance and Scalability', description: 'Optimizing application logic and database queries to ensure lighting-fast perfomance and reliable data processing' },
   ]
 
   const containerVariants = {
@@ -48,43 +48,41 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-1 px-4 sm:px-6 lg:px-8 bg-slate-950">
-      <div className="max-w-2xl mx-auto">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="mb-1">
-          <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-0.5 font-mono" style={{fontSize: 'clamp(18px, 5vw, 32px)'}}>About & Skills</h2>
-          <p className="text-xs sm:text-sm md:text-base text-slate-500"></p>
+    <motion.section 
+      variants={containerVariants} 
+      initial="hidden" 
+      whileInView="visible" 
+      viewport={{ once: true }}
+      className="py-20 px-4 sm:px-6 lg:px-8 xl:px-12 bg-white dark:bg-slate-950"
+    >
+      <div className="max-w-2xl mx-auto space-y-10">
+        <motion.div variants={itemVariants} className="mb-1">
+          <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-0.5 font-mono" style={{fontSize: 'clamp(18px, 5vw, 32px)'}}>About & Skills</h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-2 mb-3">
-         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="lg:col-span-2 space-y-1 md:space-y-2">
-            <motion.p variants={itemVariants} className="text-slate-500 text-sm md:text-base leading-relaxed">I'm a full-stack developer, with experience in building modern web applications using MERN stack.</motion.p>
-            <motion.p variants={itemVariants} className="text-slate-500 text-sm md:text-base leading-relaxed">I'm passionate creating user friendly interfaces and exploring AI and data engineering to solve real world problems.</motion.p>
-            <motion.p variants={itemVariants} className="text-slate-500 text-sm md:text-base leading-relaxed"> </motion.p>
+        <div className="grid lg:grid-cols-3 gap-6 mb-3">
+         <motion.div variants={containerVariants} className="lg:col-span-2 space-y-3">
+            <motion.p variants={itemVariants} className="text-gray-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">I am a Computer Science Engineering student with experience in building modern web applications using MERN stack.</motion.p>
+            <motion.p variants={itemVariants} className="text-gray-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">I am passionate about architecting user friendly interfaces and exploring intersection of AI and data engineering to solve real world problems through data-driven solutions.</motion.p>
           </motion.div>
 
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-1 md:space-y-2">
-            {[
-            ].map((stat, i) => (
-              <motion.div key={i} variants={itemVariants} className="dotted-left bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded p-2 hover:border-blue-500/30 transition-all">
-                <p className="text-xs sm:text-sm md:text-base font-bold text-blue-400">{stat.value}</p>
-                <p className="text-[10px] sm:text-xs md:text-sm text-slate-400">{stat.label}</p>
-              </motion.div>
-            ))}
+          <motion.div variants={containerVariants} className="space-y-1 md:space-y-2">
+            {/* Stats if available */}
           </motion.div>
         </div>
 
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-3">
-          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-extrabold text-emerald-400 mb-2">Core Expertise</h3>
-          <div className="grid md:grid-cols-3 gap-2 md:gap-3">
-            {expertise.filter(item => item.title !== 'DevOps').map((item, index) => {
+        <motion.div variants={containerVariants} className="mb-3">
+          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-extrabold text-emerald-600 dark:text-emerald-400 mb-2">Core Expertise</h3>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            {expertise.map((item, index) => {
               const Icon = item.icon
               return (
-                <motion.div key={index} variants={itemVariants} whileHover={{ scale: 1.05, y: -2 }} className="dotted-left bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-3 sm:p-4 hover:border-emerald-500 transition-all" style={{ '--dot-color': 'rgba(16,185,129,0.9)' }}>
+                <motion.div key={index} variants={itemVariants} whileHover={{ scale: 1.05, y: -2 }} className="p-3 sm:p-4 bg-white/80 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700 rounded-lg hover:border-emerald-500/50 transition-all backdrop-blur-sm">
                   <div className="flex items-start gap-2 sm:gap-3">
-                    <Icon size={16} className="text-emerald-400 mt-1 flex-shrink-0" />
+                    <Icon size={16} className="text-emerald-600 dark:text-emerald-400 mt-1 flex-shrink-0" />
                     <div>
-                      <h4 className="text-xs sm:text-sm md:text-base font-bold text-white mb-1">{item.title}</h4>
-                      <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">{item.description}</p>
+                      <h4 className="text-xs sm:text-sm md:text-base font-bold text-gray-900 dark:text-white mb-1">{item.title}</h4>
+                      <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 dark:text-slate-300">{item.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -96,70 +94,84 @@ export default function About() {
         {/* Skills Grid */}
         <div className="space-y-2 md:space-y-3">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <h3 className="text-xs sm:text-sm md:text-base font-bold text-white mb-1 md:mb-2 flex items-center gap-1">
-              <Code2 size={16} className="text-blue-400" />
+            <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-900 dark:text-white mb-1 md:mb-2 flex items-center gap-1">
+              <Code2 size={16} className="text-blue-600 dark:text-blue-400" />
               Frontend
             </h3>
-            <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 sm:gap-2">
+            <motion.div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {frontendSkills.map((skill, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className="zigzag-badge dotted-left px-2 sm:px-3 py-2 sm:py-3 rounded bg-gradient-to-br from-blue-600/20 to-blue-700/10 text-blue-300 font-medium text-center cursor-default transition-all text-[8px] sm:text-xs md:text-sm flex flex-col items-center gap-1"
-                  style={{ '--zigzag': 'rgba(96,165,250,0.95)', '--dot-color': 'rgba(96,165,250,0.95)' }}
+                  className="px-2 sm:px-3 py-2 sm:py-3 rounded bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-blue-500/50 transition-all text-[8px] sm:text-xs md:text-sm flex flex-col items-center gap-1"
                 >
                   <img src={skill.logo} alt={skill.name} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" onError={(e) => e.target.style.display = 'none'} />
-                  <span>{skill.name}</span>
+                  <span className="text-gray-900 dark:text-slate-200 font-medium">{skill.name}</span>
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <h3 className="text-xs sm:text-sm md:text-base font-bold text-white mb-1 md:mb-2 flex items-center gap-1">
-              <Zap size={16} className="text-blue-400" />
+            <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-900 dark:text-white mb-1 md:mb-2 flex items-center gap-1">
+              <Zap size={16} className="text-blue-600 dark:text-blue-400" />
               Backend
             </h3>
-            <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 sm:gap-2">
+            <motion.div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {backendSkills.map((skill, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className="zigzag-badge dotted-left px-2 sm:px-3 py-2 sm:py-3 rounded bg-gradient-to-br from-indigo-600/20 to-indigo-700/10 text-indigo-300 font-medium text-center cursor-default transition-all text-[8px] sm:text-xs md:text-sm flex flex-col items-center gap-1"
-                  style={{ '--zigzag': 'rgba(99,102,241,0.95)', '--dot-color': 'rgba(99,102,241,0.95)' }}
+                  className="px-2 sm:px-3 py-2 sm:py-3 rounded bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-indigo-500/50 transition-all text-[8px] sm:text-xs md:text-sm flex flex-col items-center gap-1"
                 >
                   <img src={skill.logo} alt={skill.name} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" onError={(e) => e.target.style.display = 'none'} />
-                  <span>{skill.name}</span>
+                  <span className="text-gray-900 dark:text-slate-200 font-medium">{skill.name}</span>
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
     
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <h3 className="text-xs sm:text-sm md:text-base font-bold text-white mb-1 md:mb-2 flex items-center gap-1">
-              <Target size={16} className="text-blue-400" />
+            <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-900 dark:text-white mb-1 md:mb-2 flex items-center gap-1">
+              <Target size={16} className="text-blue-600 dark:text-blue-400" />
               Other
             </h3>
-            <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 sm:gap-2">
+            <motion.div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               {Other.map((skill, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className="zigzag-badge dotted-left px-2 sm:px-3 py-2 sm:py-3 rounded bg-gradient-to-br from-green-600/20 to-green-700/10 text-green-300 font-medium text-center cursor-default transition-all text-[8px] sm:text-xs md:text-sm flex flex-col items-center gap-1"
-                  style={{ '--zigzag': 'rgba(34,197,94,0.95)', '--dot-color': 'rgba(34,197,94,0.95)' }}
+                  className="px-2 sm:px-3 py-2 sm:py-3 rounded bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-green-500/50 transition-all text-[8px] sm:text-xs md:text-sm flex flex-col items-center gap-1"
                 >
                   <img src={skill.logo} alt={skill.name} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" onError={(e) => e.target.style.display = 'none'} />
-                  <span>{skill.name}</span>
+                  <span className="text-gray-900 dark:text-slate-200 font-medium">{skill.name}</span>
                 </motion.div>
               ))} 
-
             </motion.div>
           </motion.div>
         </div>
+
+        <motion.div
+          className="flex justify-center mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <a
+            href="https://github.com/Newton122"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white/10 dark:bg-slate-900/50 backdrop-blur-md border border-gray-200 dark:border-slate-700 rounded-lg p-6 hover:border-blue-500 inline-flex"
+          >
+            <Github size={64} className="text-gray-900 dark:text-white" />
+          </a>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
+

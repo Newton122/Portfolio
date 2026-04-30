@@ -1,0 +1,59 @@
+
+import { motion } from 'framer-motion';
+import { Code, Database, Zap, Brain, GitBranch } from 'lucide-react';
+
+export default function About() {
+  const skills = [
+    { name: 'React', icon: Code, color: 'text-blue-500' },
+    { name: 'JavaScript', icon: Code, color: 'text-yellow-500' },
+    { name: 'Tailwind CSS', icon: Zap, color: 'text-emerald-500' },
+    { name: 'Node.js', icon: Brain, color: 'text-green-500' },
+    { name: 'MongoDB', icon: Database, color: 'text-pink-500' },
+    { name: 'Git', icon: GitBranch, color: 'text-gray-500' },
+  ];
+
+  return (
+    <section className="relative py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-2xl mx-auto px-4 text-center space-y-12"
+      >
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold dark:text-white text-gray-900"
+          whileInView={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          Skills & Technologies
+        </motion.h2>
+        
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-md mx-auto">
+          {skills.map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+              <motion.li
+                key={skill.name}
+                className="dotted-left group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, scale: 1.1 }}
+              >
+                <div className="flex items-center space-x-3 p-3 rounded-lg dark:bg-slate-800/50 bg-gray-100/50 backdrop-blur-sm border dark:border-slate-700 border-gray-200 group-hover:shadow-lg transition-all duration-300">
+                  <Icon size={24} className={`${skill.color} group-hover:scale-110 transition-transform duration-300`} />
+                  <span className="font-medium dark:text-slate-200 text-gray-800 text-sm">
+                    {skill.name}
+                  </span>
+                </div>
+              </motion.li>
+            );
+          })}
+        </ul>
+      </motion.div>
+    </section>
+  );
+}
+
