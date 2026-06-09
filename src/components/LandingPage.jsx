@@ -30,6 +30,13 @@ export default function LandingPage() {
         className="fixed inset-0 w-full h-full object-cover -z-10 dark:block hidden"
       />
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 z-20">
+        {/* Small logo top-right */}
+        <div className="absolute top-4 right-4 z-40">
+          <a href="/">
+            <img src="/placeholder-logo.svg" alt="Logo" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 p-1 dark:bg-black/10" />
+          </a>
+        </div>
+
         {/* Blur lines and background elements */}
         <div className="absolute inset-0 z-10">
           <div className="absolute inset-x-0 top-20 h-1 bg-white/10 blur-3xl opacity-40"></div>
@@ -67,18 +74,18 @@ export default function LandingPage() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link to="/profile">
-              <button className="px-2 sm:px-3 py-1 sm:py-1.5 rounded bg-slate-800 text-slate-500 hover:text-emerald-400 hover:bg-slate-700 transition-colors text-[8px] sm:text-[10px] font-medium">
+              <button className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-slate-800 text-slate-100 hover:text-white hover:bg-slate-700 transition-colors text-sm sm:text-base font-semibold shadow-sm">
                 Explore My Work
               </button>
             </Link>
             <Link to="/contact">
-              <button className="px-2 sm:px-3 py-1 sm:py-1.5 rounded bg-slate-800 text-slate-500 hover:text-emerald-400 hover:bg-slate-700 transition-colors text-[8px] sm:text-[10px] font-medium">
+              <button className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition-colors text-sm sm:text-base font-semibold shadow-sm">
                   Get In Touch
               </button>
             </Link>
